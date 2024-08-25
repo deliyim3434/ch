@@ -41,7 +41,7 @@ LOG_GROUP_ID = -1002231459610
 
 
 
-initial_balance = 25000
+initial_balance = 10000
 
 
 user_balances = {}
@@ -53,7 +53,7 @@ richest_users = []
 start_message = """
 __Merhaba! {} 🎰 Slot botuna hoş geldiniz.__
 
-**Ben bir slot botuyum! Hemen oynamaya başlamak için aşağıdaki butonları kullanarak gruba ekleyebilirsiniz.** 🤩
+**Ben bir Demo Kumar botuyum! Hemen oynamaya başlamak için aşağıdaki butonları kullanarak gruba ekleyebilirsiniz.** 🤩
 
 **Komutlarımı görmek için lütfen aşağıdaki butonu kullanın. İyi eğlenceler!** 🥳
 """
