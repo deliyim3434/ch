@@ -717,6 +717,9 @@ async def play_slot(client: Client, message: Message):
 """)
 
 
+    # Sonucu kullanıcıya bildir
+    await message.reply(result_message)
+
 
 
 
