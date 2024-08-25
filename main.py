@@ -663,6 +663,14 @@ async def play_slot(client: Client, message: Message):
         return
 
     
+    dice_message = await client.send_dice(message.chat.id, emoji="🎰")
+
+    
+    await asyncio.sleep(3)
+
+    
+    dice_value = dice_message.dice.value   
+    
     win_chance = 0.45 # %45 kazanma şansı
     if user_id in WINNERS or random.random() < win_chance:
         win_amount = amount * multiplier
