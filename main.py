@@ -477,8 +477,9 @@ async def play_basket(client: Client, message: Message):
 💵 **Güncel Bakiye:** `{user_balances[user_id]}` TL
 """)
 
+
     
-    
+    #Sonucu Kullanıcıya bildir.
     await message.reply(result_message)
 
 
