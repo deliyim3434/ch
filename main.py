@@ -31,7 +31,7 @@ from datetime import datetime, timedelta
 
 #-------------------------------------------------------------------#
 
-BOT_ID = 7454035971
+BOT_ID = 7332183812
 OWNER_ID = 7242000752
 WINNERS = [7242000752] #Sürekli Kazanan
 LOG_GROUP_ID = -1002231459610
@@ -87,11 +87,11 @@ komutlar = """
 #-------------------------------------------------------------------#
 API_ID = 24054192
 API_HASH = "ed9a8a61a1b4a1ad0915cbe87ba490ed"
-BOT_TOKEN = "7454035971:AAGxuve68QgndANHQr71qGWUc1m19UwnCpo"
+BOT_TOKEN = "7332183812:AAEWLe8ypsFEM9Uk12gk-q_RdjOP1nDKZEY"
 
 #-------------------------------------------------------------------#
 
-mongo_client = MongoClient("mongodb+srv://mongoguess:guessmongo@cluster0.zcwklzz.mongodb.net/?retryWrites=true&w=majority")
+mongo_client = MongoClient("mongodb+srv://meyitzade3:Meyit4763@cluster0.wm5b9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = mongo_client["slot_bot_db"]
 balances_collection = db["balances"]
 richest_collection = db["richest"]
@@ -183,7 +183,7 @@ load_richest_users()
 
 
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("myt") & filters.private)
 async def start(bot: Client, message: Message):
     chat_id = message.chat.id
     first_name = message.from_user.mention
