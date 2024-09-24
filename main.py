@@ -183,7 +183,7 @@ load_richest_users()
 
 
 
-@app.on_message(filters.command("myt") & filters.private)
+@app.on_message(filters.command("mytzd") & filters.private)
 async def start(bot: Client, message: Message):
     chat_id = message.chat.id
     first_name = message.from_user.mention
