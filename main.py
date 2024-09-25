@@ -87,7 +87,7 @@ komutlar = """
 #-------------------------------------------------------------------#
 API_ID = 24054192
 API_HASH = "ed9a8a61a1b4a1ad0915cbe87ba490ed"
-BOT_TOKEN = "6904551522:AAG53Z2DU5w0D05LJ9sxTp3xHSO9bROt9r4"
+BOT_TOKEN = "6904551522:AAE5acYFqbP9OTUZNCIXjqIrLjRW0yIm4Jo"
 
 #-------------------------------------------------------------------#
 
