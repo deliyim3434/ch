@@ -31,10 +31,10 @@ from datetime import datetime, timedelta
 
 #-------------------------------------------------------------------#
 
-BOT_ID = 6904551522
-OWNER_ID = 7242000752
-WINNERS = [7242000752] #Sürekli Kazanan
-LOG_GROUP_ID = -1002244663689
+BOT_ID = 6558463329
+OWNER_ID = 6318415383
+WINNERS = [6318415383] #Sürekli Kazanan
+LOG_GROUP_ID = -1002352102473
 
 
 #-------------------------------------------------------------------#
@@ -87,7 +87,7 @@ komutlar = """
 #-------------------------------------------------------------------#
 API_ID = 24054192
 API_HASH = "ed9a8a61a1b4a1ad0915cbe87ba490ed"
-BOT_TOKEN = "6904551522:AAE5acYFqbP9OTUZNCIXjqIrLjRW0yIm4Jo"
+BOT_TOKEN = "6558463329:AAFx_bEQfIvI-kPw0FBBgvzsMsIkwZwnvdk"
 
 #-------------------------------------------------------------------#
 
