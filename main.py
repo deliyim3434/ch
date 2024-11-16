@@ -31,10 +31,10 @@ from datetime import datetime, timedelta
 
 #-------------------------------------------------------------------#
 
-BOT_ID = 6558463329
-OWNER_ID = 6318415383
-WINNERS = [6318415383] #Sürekli Kazanan
-LOG_GROUP_ID = -1002352102473
+BOT_ID = 7039187206
+OWNER_ID = 1886279343
+WINNERS = [1886279343] #Sürekli Kazanan
+LOG_GROUP_ID = -1001775928298
 
 
 #-------------------------------------------------------------------#
@@ -87,7 +87,7 @@ komutlar = """
 #-------------------------------------------------------------------#
 API_ID = 24054192
 API_HASH = "ed9a8a61a1b4a1ad0915cbe87ba490ed"
-BOT_TOKEN = "6558463329:AAFx_bEQfIvI-kPw0FBBgvzsMsIkwZwnvdk"
+BOT_TOKEN = "7039187206:AAF3o5RYZtsQt_U2J-EazOzkxPI8MBNnpkU"
 
 #-------------------------------------------------------------------#
 
@@ -183,7 +183,7 @@ load_richest_users()
 
 
 
-@app.on_message(filters.command("mytzd") & filters.private)
+@app.on_message(filters.command("start") & filters.private)
 async def start(bot: Client, message: Message):
     chat_id = message.chat.id
     first_name = message.from_user.mention
@@ -226,8 +226,8 @@ async def start(bot: Client, message: Message):
                     InlineKeyboardButton("📚 Komutlar", callback_data="cvv"),
                 ],
                 [
-                    InlineKeyboardButton("🗯 Delular", url=f"https://t.me/DelularSohbet"),
-                    InlineKeyboardButton("➕ Beni Grubuna Ekle", url=f"https://t.me/Casino_Cash_Money_Bot?startgroup=a"),
+                    InlineKeyboardButton("🗯 Sohbet", url=f"https://t.me/KnowxChatt"),
+                    InlineKeyboardButton("➕ Beni Grubuna Ekle", url=f"https://t.me/DynowoBot?startgroup=a"),
                 ],
                 [
                     InlineKeyboardButton("❤️‍🔥 Geliştirici", user_id=OWNER_ID),
@@ -270,11 +270,11 @@ async def _start(bot: Client, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗯 Kanal", url=f"https://t.me/DelularSohbet"
+                        "🗯 Sohbet", url=f"https://t.me/KnowxChatt"
                     ),
 
                     InlineKeyboardButton(
-                        "➕ Beni Grubuna Ekle" , url=f"https://t.me/Casino_Cash_Money_Bot?startgroup=a"
+                        "➕ Beni Grubuna Ekle" , url=f"https://t.me/DynowoBot?startgroup=a"
                     ),
                 ],
                 [
