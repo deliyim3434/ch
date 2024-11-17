@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+x# -*- coding: utf-8 -*-
 
 __updated__ = "2024-07-15 02:19:39"
 
@@ -485,8 +485,6 @@ async def play_basket(client: Client, message: Message):
 
 
 
-
-
 @app.on_message(filters.command("fcash") & filters.group)
 async def play_basket(client: Client, message: Message):
     if is_user_blocked(message.from_user.id):
@@ -501,7 +499,6 @@ async def play_basket(client: Client, message: Message):
 
     current_time = datetime.now()
     last_cash_time = user_last_cash_time.get(user_id)
-
     if last_cash_time and current_time - last_cash_time < timedelta(seconds=3):
         await message.reply(f"**Lütfen 3 saniye bekleyin. ⏳**")
         return
@@ -596,8 +593,31 @@ async def play_basket(client: Client, message: Message):
 
 
 
+    await message.reply("__Futbol oyununu oynamak için önce özelden start verin. 💫__")
+        return
 
+    current_time = datetime.now()
+    last_cash_time = user_last_cash_time.get(user_id)
 
+    if last_cash_time and current_time - last_cash_time < timedelta(seconds=3):
+        await message.reply(f"**Lütfen 3 saniye bekleyin. ⏳**")
+        return
+
+    try:
+        amount_str = message.command[1]
+        if not amount_str.isdigit() or len(amount_str) > 17:
+            await message.reply("**Lütfen sadece maksimum 17 rakam içeren bir miktar girin. 💵**")
+            return
+        
+        amount = int(amount_str)
+
+        multiplier = 1
+        if len(message.command) > 2:
+            multiplier_str = message.command[2]
+            if multiplier_str[-1] == 'x' and multiplier_str[:-1].isdigit():
+                multiplier = int(multiplier_str[:-1])
+            else:
+                raise ValueError()
 
 
 
