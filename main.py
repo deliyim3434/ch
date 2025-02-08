@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.raw.functions.messages import Report
 
-api_id =   
-api_hash = " "  
-session_string = " "
+api_id = 25504446   
+api_hash = "47db27cde56c3e4690e244e6de10f919 "  
+session_string = "BAHHjswAxlsjHzYHbZd_lcNMQ8A1mqUIeiEl3ordydU9i61d5acg3k4PZNgC9kPHgxEOGzXiVPJPaROphqtKYMV1NKq29pSt18J2pcAss44iDnY8nBq8qu4ILDws_MQ-nDGEUUDTBoZD3Y_6NEhBh0_96-d6LBGkSWoGVp8HxJHV2YNMIT9hXez8RFWbQubguGeSOLTPxiR4s54QAJ9OAUI5-qaExdvswbkD_a4VxYlL_fyZNM3HSbsbL1r2ss9qU0jbhjl9dCeVqAyYEe-X_9v_LC2Ug_9GdYG7aZ3Hv77b3dbB-VZGctAvHrPyumWnwNckgEtQk-y29Vg6aWI57rFyVGQdAQAAAAGqKcUFAA"
 
 app = Client("spam", api_id=api_id, api_hash=api_hash, session_string=session_string)
 
