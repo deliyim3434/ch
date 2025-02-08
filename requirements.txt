@@ -1,11 +1,1 @@
-aiogram==3.0.0
-cachetools==5.3.1
-pyrogram==2.0.106
-redis==5.0.0
-pymongo
-logging
-tgcrypto
-python-dotenv==1.0.0
-pydantic==2.3.0
-pydantic-settings==2.0.3
-fluent.runtime==0.4.0
+pyrogram
