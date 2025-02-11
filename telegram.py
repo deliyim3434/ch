@@ -128,7 +128,7 @@ application.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, hand
 application.run_polling()
 
 if __name__ == '__main__':
-main()arts) < 2:
+telegram()arts) < 2:
             await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
             return
         params = {"ad": parts[0], "soyad": parts[1]}
@@ -165,4 +165,4 @@ def main():
     application.run_polling()
 
 if __name__ == '__main__':
-    main()
+    telegram()
