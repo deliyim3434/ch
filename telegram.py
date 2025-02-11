@@ -127,7 +127,7 @@ application.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, hand
 
 application.run_polling()
 
-if __name__ == '__main__':
+if __name__ == '__telegram__':
 telegram()arts) < 2:
             await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
             return
@@ -164,5 +164,5 @@ def main():
 
     application.run_polling()
 
-if __name__ == '__main__':
+if __name__ == '__telegram__':
     telegram()
