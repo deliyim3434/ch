@@ -1,8 +1,14 @@
 import logging
 import requests
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    CallbackQueryHandler,
+    MessageHandler,
+    filters,
+    ContextTypes
+)
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -107,14 +113,15 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         logger.error(f"Beklenmeyen hata: {e}")
         await update.message.reply_text("İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.")
 
-async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     logger.error(f"Update {update} caused error {context.error}")
-    if update.message:
+    if isinstance(update, Update) and update.message:
         await update.message.reply_text("Bir hata oluştu. Lütfen tekrar deneyin.")
 
-def main() -> None:
+async def main() -> None:
     try:
-        application = Application.builder().token(TOKEN).build()
+        application = ApplicationBuilder().token(TOKEN).build()
+
         application.add_handler(CommandHandler("start", start))
         application.add_handler(CallbackQueryHandler(button))
         application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
@@ -122,10 +129,14 @@ def main() -> None:
         application.add_error_handler(error_handler)
 
         logger.info("Bot başlatılıyor...")
-        application.run_polling()
+        await application.initialize()
+        await application.start()
+        await application.run_polling()
 
     except Exception as e:
         logger.error(f"Bot başlatılırken hata oluştu: {e}")
+        raise e
 
 if __name__ == '__main__':
-    main()
+    import asyncio
+    asyncio.run(main())
