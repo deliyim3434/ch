@@ -1,55 +1,168 @@
-from pyrogram import Client, filters
-from pyrogram.raw.functions.messages import Report
+import logging
+import requests
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, CallbackContext
 
-api_id = 25504446   
-api_hash = "47db27cde56c3e4690e244e6de10f919 "  
-session_string = "BAHHjswAxlsjHzYHbZd_lcNMQ8A1mqUIeiEl3ordydU9i61d5acg3k4PZNgC9kPHgxEOGzXiVPJPaROphqtKYMV1NKq29pSt18J2pcAss44iDnY8nBq8qu4ILDws_MQ-nDGEUUDTBoZD3Y_6NEhBh0_96-d6LBGkSWoGVp8HxJHV2YNMIT9hXez8RFWbQubguGeSOLTPxiR4s54QAJ9OAUI5-qaExdvswbkD_a4VxYlL_fyZNM3HSbsbL1r2ss9qU0jbhjl9dCeVqAyYEe-X_9v_LC2Ug_9GdYG7aZ3Hv77b3dbB-VZGctAvHrPyumWnwNckgEtQk-y29Vg6aWI57rFyVGQdAQAAAAGqKcUFAA"
+TOKEN = '7773120207:AAFlvOOUknaXWDTh130is7SXL4fjBYAzr-Q'
 
-app = Client("spam", api_id=api_id, api_hash=api_hash, session_string=session_string)
+# API URLLERİ BURAYA DAHA DÜZENLİ YANIT İÇİN GELİŞTİRİRSİNZ SADECE APİ YANITINI ATAR
+API_URLS = {
+"TC": "http://api.sowixvip.xyz/sowixapi/tc.php?tc=",
+"Aile": "http://api.sowixvip.xyz/sowixapi/aile.php?tc=",
+"Sulale": "http://api.sowixvip.xyz/sowixapi/sulale.php?tc=",
+"Tc GSM": "http://api.sowixvip.xyz/sowixapi/tcgsm.php?tc=",
+"GSM TC": "http://api.sowixvip.xyz/sowixapi/gsmdetay.php?gsm=",
+"TC Pro": "http://api.sowixvip.xyz/sowixapi/tcpro.php?tc=",
+"IBAN": "APILERI BURAYA YAZ",
+"Kızlık Soyadı": "APILERI BURAYA YAZ",
+"Operatör": "APILERI BURAYA YAZ",
+"Serino": "APILERI BURAYA YAZ",
+"Sicil": "APILERI BURAYA YAZ",
+"SMS Bomber": "APILERI BURAYA YAZ",
+"Ayak": "APILERI BURAYA YAZ",
+"Yarrak ve Boy": "APILERI BURAYA YAZ",
+"IP Sorgu": "APILERI BURAYA YAZ",
+"Anne Baba": "APILERI BURAYA YAZ",
+"Çocuk": "APILERI BURAYA YAZ",
+"Kardeş": "APILERI BURAYA YAZ",
+"Kuzen": "APILERI BURAYA YAZ",
+"Yeğen": "APILERI BURAYA YAZ",
+"Full": "APILERI BURAYA YAZ",
+"Ad Soyad": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar",
+"Ad Soyad İl": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar&il=bursa",
+"Ad Soyad İl İlçe": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar&il=bursa",
+"Adres": "http://api.sowixvip.xyz/sowixapi/adres.php?tc=",
+}
 
-@app.on_message(filters.command("spam"))
-async def report_spam(client, message):
-    try:
-        if message.reply_to_message:  
-            chat = message.reply_to_message.chat
-            message_id = message.reply_to_message.id
+# Hoş geldin mesajı burada düzenlersin
+WELCOME_MESSAGE = (
+"Merhaba! @che 🌟\n\n"
+"Benimle çeşitli sorgular yapabilirsiniz. Aşağıdaki seçeneklerden birini seçin ve gerekli bilgileri girin:\n\n"
+"Başlamak için lütfen bir seçenek belirleyin! 🇹🇷"
+)
 
-            if message.reply_to_message.forward_from_chat:
-                chat = message.reply_to_message.forward_from_chat
+async def start(update: Update, context: CallbackContext):
+keyboard = [
+[InlineKeyboardButton("📋 TC Sorgula", callback_data='TC')],
+[InlineKeyboardButton("👪 Aile Bilgileri", callback_data='Aile')],
+[InlineKeyboardButton("🌳 Sulale", callback_data='Sulale')],
+[InlineKeyboardButton("📱 TC GSM", callback_data='Tc GSM')],
+[InlineKeyboardButton("📞 GSM TC", callback_data='GSM TC')],
+[InlineKeyboardButton("🔑 TC Pro", callback_data='TC Pro')],
+[InlineKeyboardButton("🏦 IBAN", callback_data='IBAN')],
+[InlineKeyboardButton("💼 Kızlık Soyadı", callback_data='Kızlık Soyadı')],
+[InlineKeyboardButton("📞 Operatör", callback_data='Operatör')],
+[InlineKeyboardButton("🔢 Serino", callback_data='Serino')],
+[InlineKeyboardButton("📜 Sicil", callback_data='Sicil')],
+[InlineKeyboardButton("📲 SMS Bomber", callback_data='SMS Bomber')],
+[InlineKeyboardButton("👣 Ayak", callback_data='Ayak')],
+[InlineKeyboardButton("📏 Yarrak ve Boy", callback_data='Yarrak ve Boy')],
+[InlineKeyboardButton("🌐 IP Sorgu", callback_data='IP Sorgu')],
+[InlineKeyboardButton("👨‍👩‍👧‍👦 Anne Baba", callback_data='Anne Baba')],
+[InlineKeyboardButton("👶 Çocuk", callback_data='Çocuk')],
+[InlineKeyboardButton("👫 Kardeş", callback_data='Kardeş')],
+[InlineKeyboardButton("👨‍👩‍👧 Kuzen", callback_data='Kuzen')],
+[InlineKeyboardButton("👦 Yeğen", callback_data='Yeğen')],
+[InlineKeyboardButton("🔍 Full Sorgu", callback_data='Full')],
+[InlineKeyboardButton("📝 Ad Soyad", callback_data='Ad Soyad')],
+[InlineKeyboardButton("📍 Ad Soyad İl", callback_data='Ad Soyad İl')],
+[InlineKeyboardButton("📍 Ad Soyad İl İlçe", callback_data='Ad Soyad İl İlçe')],
+[InlineKeyboardButton("🏠 Adres", callback_data='Adres')],
+]
+reply_markup = InlineKeyboardMarkup(keyboard)
+await update.message.reply_text(WELCOME_MESSAGE, reply_markup=reply_markup)
 
-            peer = await client.resolve_peer(chat.id)
-            reason = "personal details"
+async def button(update: Update, context: CallbackContext):
+query = update.callback_query
+await query.answer()
+data = query.data
 
-            for _ in range(10):  
-                await client.invoke(Report(peer=peer, id=[message_id], reason=reason, message=""))
+await query.edit_message_text(text=f"{data} sorgusu yapmak için gerekli bilgileri girin.")
+context.user_data['current_query'] = data
 
-            if chat.username:
-                msg_link = f"https://t.me/{chat.username}/{message_id}"
-            else:
-                msg_link = f"https://t.me/c/{str(chat.id)[4:]}/{message_id}"
+async def handle_message(update: Update, context: CallbackContext):
+text = update.message.text
+query_type = context.user_data.get('current_query')
 
-            await message.edit_text(f"✅ mesaj şikayet edildi: [tıkla]({msg_link}) (sebep: {reason})", disable_web_page_preview=True)
+if not query_type:
+await update.message.reply_text("Önce bir sorgu seçmelisiniz. /start komutunu kullanın.")
+return
 
-        elif len(message.command) > 1:
-            target_id = message.command[1]
+params = {}
+if query_type == "Ad Soyad":
+parts = text.split(' ')
+if len(parts) &lt; 2:
+await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
+return
+params = {"ad": parts[0], "soyad": parts[1]}
+elif query_type == "Ad Soyad İl":
+parts = text.split(' ')
+if len(parts) &lt; 3:
+await update.message.reply_text("Ad, soyad ve il bilgisini doğru formatta girin: Ad Soyad İl")
+return
+params = {"ad": parts[0], "soyad": parts[1], "il": parts[2]}
+elif query_type == "Ad Soyad İl İlçe":
+parts = text.split(' ')
+if len(parts) &lt; 4:
+await update.message.reply_text("Ad, soyad, il ve ilçe bilgisini doğru formatta girin: Ad Soyad İl İlçe")
+return
+params = {"ad": parts[0], "soyad": parts[1], "il": parts[2], "ilce": parts[3]}
+else:
+if query_type in ["GSM TC", "Operatör"]:
+params = {"gsm": text}
+else:
+params = {"tc": text}
 
-            if not target_id.lstrip('-').isdigit():
-                await message.edit_text("❌ hata: geçersiz kanal ID!")
-                return
+api_url = API_URLS.get(query_type).format(**params)
+response = requests.get(api_url)
+result = response.json()
 
-            target_id = int(target_id)
-            peer = await client.resolve_peer(target_id)
-            reason = "personal details"
+await update.message.reply_text(f"API yanıtı:\n{result}")
 
-            for _ in range(10):  
-                await client.invoke(Report(peer=peer, id=[], reason=reason, message=""))
+def main():
+application = Application.builder().token(TOKEN).build()
+application.add_handler(CommandHandler("start", start))
+application.add_handler(CallbackQueryHandler(button))
+application.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, handle_message))
 
-            await message.edit_text(f"✅ {target_id} başarıyla şikayet edildi! (sebep: {reason})")
+application.run_polling()
 
+if __name__ == '__main__':
+main()arts) < 2:
+            await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
+            return
+        params = {"ad": parts[0], "soyad": parts[1]}
+    elif query_type == "Ad Soyad İl":
+        parts = text.split(' ')
+        if len(parts) < 3:
+            await update.message.reply_text("Ad, soyad ve il bilgisini doğru formatta girin: Ad Soyad İl")
+            return
+        params = {"ad": parts[0], "soyad": parts[1], "il": parts[2]}
+    elif query_type == "Ad Soyad İl İlçe":
+        parts = text.split(' ')
+        if len(parts) < 4:
+            await update.message.reply_text("Ad, soyad, il ve ilçe bilgisini doğru formatta girin: Ad Soyad İl İlçe")
+            return
+        params = {"ad": parts[0], "soyad": parts[1], "il": parts[2], "ilce": parts[3]}
+    else:
+        if query_type in ["GSM TC", "Operatör"]:
+            params = {"gsm": text}
         else:
-            await message.edit_text("❌ kullanım: /spam <kanal_id> veya bir mesaja yanıt verin!")
+            params = {"tc": text}
 
-    except Exception as e:
-        await message.edit_text(f"❌ hata: {str(e)}")
+    api_url = API_URLS.get(query_type).format(**params)
+    response = requests.get(api_url)
+    result = response.json()
+    
+    await update.message.reply_text(f"API yanıtı:\n{result}")
 
-app.run()
+def main():
+    application = Application.builder().token(TOKEN).build()
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(button))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
+    application.run_polling()
+
+if __name__ == '__main__':
+    main()
