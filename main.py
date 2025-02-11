@@ -338,7 +338,4 @@ def create_serino_response_text(api_response):
 
     return response_text
 
-    try:
-    bot.polling(none_stop=True)
-except Exception as e:
-    print(f"Hata: {e}")
+    
