@@ -1,1 +1,1 @@
-worker: python3 Spam.py
+worker: python3 telegram.py
