@@ -8,12 +8,12 @@ TOKEN = '7773120207:AAFlvOOUknaXWDTh130is7SXL4fjBYAzr-Q'
 
 # API URLLERİ BURAYA DAHA DÜZENLİ YANIT İÇİN GELİŞTİRİRSİNZ SADECE APİ YANITINI ATAR
 API_URLS = {
-"TC": "APILERI BURAYA YAZ",
-"Aile": "APILERI BURAYA YAZ",
-"Sulale": "APILERI BURAYA YAZ",
-"Tc GSM": "APILERI BURAYA YAZ",
-"GSM TC": "APILERI BURAYA YAZ",
-"TC Pro": "APILERI BURAYA YAZ",
+"TC": "http://api.sowixvip.xyz/sowixapi/tc.php?tc=",
+"Aile": "http://api.sowixvip.xyz/sowixapi/aile.php?tc=",
+"Sulale": "http://api.sowixvip.xyz/sowixapi/sulale.php?tc=",
+"Tc GSM": "http://api.sowixvip.xyz/sowixapi/tcgsm.php?tc=",
+"GSM TC": "http://api.sowixvip.xyz/sowixapi/gsm.php?gsm=",
+"TC Pro": "http://api.sowixvip.xyz/sowixapi/tc.php?tc=",
 "IBAN": "APILERI BURAYA YAZ",
 "Kızlık Soyadı": "APILERI BURAYA YAZ",
 "Operatör": "APILERI BURAYA YAZ",
@@ -29,10 +29,10 @@ API_URLS = {
 "Kuzen": "APILERI BURAYA YAZ",
 "Yeğen": "APILERI BURAYA YAZ",
 "Full": "APILERI BURAYA YAZ",
-"Ad Soyad": "APILERI BURAYA YAZ",
-"Ad Soyad İl": "APILERI BURAYA YAZ",
-"Ad Soyad İl İlçe": "APILERI BURAYA YAZ",
-"Adres": "APILERI BURAYA YAZ",
+"Ad Soyad": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar",
+"Ad Soyad İl": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar&il=bursa",
+"Ad Soyad İl İlçe": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad=roket&soyad=atar&il=bursa",
+"Adres": "http://api.sowixvip.xyz/sowixapi/adres.php?tc=",
 }
 
 # Hoş geldin mesajı burada düzenlersin
