@@ -2,7 +2,7 @@ import logging
 import requests
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
-    ApplicationBuilder,
+    Application,
     CommandHandler,
     CallbackQueryHandler,
     MessageHandler,
@@ -113,30 +113,15 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         logger.error(f"Beklenmeyen hata: {e}")
         await update.message.reply_text("İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.")
 
-async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
-    logger.error(f"Update {update} caused error {context.error}")
-    if isinstance(update, Update) and update.message:
-        await update.message.reply_text("Bir hata oluştu. Lütfen tekrar deneyin.")
+def main() -> None:
+    app = Application.builder().token(TOKEN).build()
 
-async def main() -> None:
-    try:
-        application = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CallbackQueryHandler(button))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-        application.add_handler(CommandHandler("start", start))
-        application.add_handler(CallbackQueryHandler(button))
-        application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-        
-        application.add_error_handler(error_handler)
-
-        logger.info("Bot başlatılıyor...")
-        await application.initialize()
-        await application.start()
-        await application.run_polling()
-
-    except Exception as e:
-        logger.error(f"Bot başlatılırken hata oluştu: {e}")
-        raise e
+    logger.info("Bot başlatılıyor...")
+    app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
+    main()
