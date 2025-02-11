@@ -338,7 +338,6 @@ def create_serino_response_text(api_response):
 
     return response_text
 
-if __name__ == '__main__':
     try:
     bot.polling(none_stop=True)
 except Exception as e:
