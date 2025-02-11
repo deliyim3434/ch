@@ -1,7 +1,8 @@
 import logging
 import requests
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -93,7 +94,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
         api_url = API_URLS[query_type].format(**params)
         response = requests.get(api_url)
-        response.raise_for_status() 
+        response.raise_for_status()
         result = response.json()
 
         formatted_result = f"🔍 Sorgu Sonucu:\n\n{result}"
@@ -114,7 +115,6 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 def main() -> None:
     try:
         application = Application.builder().token(TOKEN).build()
-
         application.add_handler(CommandHandler("start", start))
         application.add_handler(CallbackQueryHandler(button))
         application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
