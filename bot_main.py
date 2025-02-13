@@ -28,7 +28,7 @@ API_URLS = {
     "Ad_Soyad": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad={ad}&soyad={soyad}",
     "Ad_Soyad_İl": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad={ad}&soyad={soyad}&il={il}",
     "Ad_Soyad_İl_İlçe": "https://api.sowixvip.xyz/sowixapi/adsoyadilice.php?ad={ad}&soyad={soyad}&il={il}&ilce={ilce}",
-    "Adres": "http://api.sowixvip.xyz/sowixapi/adres.php?tc={tc}",
+    "Adres": "https://sowixfree.xyz/sowixapi/adres.php.?tc={tc}",
 }
 
 WELCOME_MESSAGE = """
