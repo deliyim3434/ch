@@ -16,7 +16,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TOKEN = '7773120207:AAFlvOOUknaXWDTh130is7SXL4fjBYAzr-Q'
+TOKEN = '8170723295:AAE05oQ0Aeep7eQ34hrTwNxLL0aw8Zl_u_Y'
 
 API_URLS = {
     "TC": "http://api.sowixvip.xyz/sowixapi/tc.php?tc={tc}",
