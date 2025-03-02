@@ -4,3 +4,4 @@ telebot
 pyfiglet
 instaloader
 whois
+validators
