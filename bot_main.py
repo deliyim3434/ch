@@ -231,7 +231,7 @@ def start(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -279,7 +279,7 @@ def komutlar(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -347,7 +347,7 @@ def figlet(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check  katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,   katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -402,7 +402,7 @@ def destek(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     mesaj = message.text.split(maxsplit=1)
     if mesaj is None:
@@ -431,7 +431,7 @@ def figlet(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -480,7 +480,7 @@ def call(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -587,7 +587,7 @@ def cc(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, \@rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm, \ gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -640,7 +640,7 @@ def ip(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -703,7 +703,7 @@ def ig(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -764,7 +764,7 @@ def index(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -823,7 +823,7 @@ def playkod(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -929,7 +929,7 @@ def random_user(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -987,7 +987,7 @@ def whois_info(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @KANALIN ve @KANALIN gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -1042,7 +1042,7 @@ def rpubg_command(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -1107,7 +1107,7 @@ def rot13_command(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -1141,7 +1141,7 @@ def md5_command(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -1206,7 +1206,7 @@ def generate_qr(message):
         if not is_user_in_channel(user_id, channel_username):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     
     # Kullanıcının banlı olup olmadığını kontrol et
@@ -1311,7 +1311,7 @@ def send_exchange_rates(message):
         if not is_user_in_channel(user_id, channel_username):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     
     # Kullanıcının banlı olup olmadığını kontrol et
@@ -1361,7 +1361,7 @@ def sorgu(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(chat_id, 'typing')
         time.sleep(0.1)
-        bot.send_message(chat_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+        bot.send_message(chat_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
         return
     
     # Ban kontrolü
@@ -1477,7 +1477,7 @@ def medeni(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
 
     user_id = message.from_user.id
@@ -1554,7 +1554,7 @@ def okulno(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm, gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
                 
     user_id = message.from_user.id
@@ -1615,7 +1615,7 @@ def tckn(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
                 
     user_id = message.from_user.id
@@ -1708,7 +1708,7 @@ def kizlik(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  ve gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
 
     user_id = message.from_user.id
@@ -1786,7 +1786,7 @@ def send_random_photo_with_caption(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
 
     user_id = message.from_user.id
@@ -1842,7 +1842,7 @@ def penis_size(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     
                 
@@ -1895,7 +1895,7 @@ def penis_size(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
                 
     user_id = message.from_user.id
@@ -1948,7 +1948,7 @@ def burc(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+            bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
 
     user_id = message.from_user.id
@@ -2024,7 +2024,7 @@ def apartman(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(message.chat.id, 'typing')
         time.sleep(0.1)
-        bot.send_message(user_id, text="Üzgünüm, @rody_check ve @rodyduyuru gruplarına katılmak zorunludur!", parse_mode="Markdown")
+        bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
         return
 
     ban_info = get_ban_info(user_id)
@@ -2111,7 +2111,7 @@ def gsmtc(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(message.chat.id, 'typing')
         time.sleep(0.1)
-        bot.send_message(user_id, text="Üzgünüm, @rodyduyuru ve @rody_check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+        bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
         return
 
     ban_info = get_ban_info(user_id)
@@ -2200,7 +2200,7 @@ def sulale(message):
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(message.chat.id, 'typing')
         time.sleep(0.1)
-        bot.send_message(user_id, text="Üzgünüm, @RodyDuyuru ve @Rody_Check gruplarına katılmak zorunludur!", parse_mode="Markdown")
+        bot.send_message(user_id, text="Üzgünüm,  ve  gruplarına katılmak zorunludur!", parse_mode="Markdown")
         return
 
     ban_info = get_ban_info(user_id)
