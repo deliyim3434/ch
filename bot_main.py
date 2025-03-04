@@ -226,8 +226,8 @@ def is_user_in_channel(chat_id, channel_username):
 def start(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = '@rodyduyuru'
-    channel_username2 = '@rody_check' 
+    channel_username1 = ''
+    channel_username2 = '' 
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -332,7 +332,7 @@ def komutlar(message):
     "📰 /haberler` - Güncel Haberleri Verir\n"
     "₿ /coin - Coin Fiyatlarını Verir\n"
     "𝖘𝖔̈𝖟𝖑𝖊𝖘̧𝖒𝖊\n\n"
-    "📌 **Rody Panel'in** Tüm Hakları Saklıdır📌\n\n```"
+    "📌 **che Panel'in** Tüm Hakları Saklıdır📌\n\n```"
     
     )
 
