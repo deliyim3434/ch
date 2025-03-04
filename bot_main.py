@@ -226,7 +226,6 @@ def is_user_in_channel(chat_id, channel_username):
 def start(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
