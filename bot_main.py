@@ -28,11 +28,11 @@ def get_reason(message):
     
     report_data = {
         'message': f'Bu kullanıcı ({username}) spam veya dolandırıcılık yapıyor: {reason}',
-        'email': 'reporter@example.com',  # istediğin maili gir annesiz
+        'email': 'ali3421@gmail.com',  # istediğin maili gir annesiz
         'phone': '+1234567890'  # fake no gir orospu evladi 
     }
     
-    response = requests.post('https://telegram.org/support', data=report_data)
+    response = requests.post('https://telegram.org/support?setln=tr', data=report_data)
     
     if response.status_code == 200:
         bot.send_message(message.chat.id, f"✅ Şikayetiniz başarıyla gönderildi!\n🔹 Şikayet Edilen Kullanıcı: {username}\n📌 Sebep: {reason}\n🔗 Telegram Destek Ekibi en kısa sürede inceleyecektir.")
