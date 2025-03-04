@@ -226,10 +226,8 @@ def is_user_in_channel(chat_id, channel_username):
 def start(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -272,11 +270,8 @@ def start(message):
 def komutlar(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = '@TozluFes'
-    if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -339,12 +334,9 @@ def komutlar(message):
 def figlet(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = '' 
-    if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
+    
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm,   katılmak zorunludur!", parse_mode="Markdown")
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
@@ -394,12 +386,10 @@ def destek(message):
     id=-1002443458217
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
-    if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
+
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
-            bot.send_message(user_id, text="Üzgünüm,  gruplarına katılmak zorunludur!", parse_mode="Markdown")
+        
             return
     mesaj = message.text.split(maxsplit=1)
     if mesaj is None:
