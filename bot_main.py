@@ -229,8 +229,6 @@ def is_user_in_channel(chat_id, channel_username):
 def komutlar(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-            
-            return
     ban_info=get_ban_info(user_id)
     if ban_info:
         ban_mes=(
