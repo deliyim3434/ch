@@ -222,56 +222,14 @@ def is_user_in_channel(chat_id, channel_username):
         return False
 
 #start
-@bot.message_handler(commands=['start'])
-def start(message):
-    user_id = message.from_user.id
-    user_name = message.from_user.username
-            
-            time.sleep(0.1)
-            return
-    ban_info=get_ban_info(user_id)
-    if ban_info:
-        ban_mes=(
-                f"╭─━━━━━━━━━━━━━─╮\n"
-                f"|Botan Banlanmışsınız\n\n"
-                f"|Kullanıcı Bilgileri\n\n"
-                f"|Kullanıcı Adı: {user_name}\n"
-                f"|Kullanıcı ID: {user_id}\n\n"
-                f"|Botan Banınızın Kalkmasını İstiyorsanız /desteğe Yaz\n"
-                f"╰─━━━━━━━━━━━━━─╯"
-            )
-        bot.send_message(user_id,ban_mes)
-        return
-    chat_id=8016828914
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM users")
-    total_users = cursor.fetchone()[0]
-
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE user_id=?", (user_id,))
-    existing_user = cursor.fetchone()
-    if existing_user:
-        pass
-    else:
-        try:
-            cursor.execute('INSERT INTO users (user_id, username) VALUES (?, ?)', (user_id, user_name))
-            conn.commit()
-            bot.send_message(chat_id,f"`Yeni Kulanıcı`\n`Toplam Kulanıcı Sayısı {total_users}`\n\n`User_id`: {user_id}\n`User_name`: @{user_name}" ,parse_mode="Markdown")
-        except Exception as e:
-            bot.send_message(user_id, f"Hata: {e}")
-
-    bot.send_photo(user_id, open('logo.jpg', 'rb'), caption=f"{user_name} (`{user_id}`) Bota Hoşgeldin İyi Eğlenceler\n\n Komutlar için /komutlar  ", parse_mode="Markdown")
-
+        
 
 #komutlar
 @bot.message_handler(commands=['komutlar'])
 def komutlar(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-            bot.send_chat_action(message.chat.id, 'typing')
-            time.sleep(0.1)
+            
             return
     ban_info=get_ban_info(user_id)
     if ban_info:
