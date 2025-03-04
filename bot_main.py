@@ -226,7 +226,7 @@ def is_user_in_channel(chat_id, channel_username):
 def start(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-            bot.send_chat_action(message.chat.id, 'typing')
+            
             time.sleep(0.1)
             return
     ban_info=get_ban_info(user_id)
