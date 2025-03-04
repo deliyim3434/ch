@@ -53,6 +53,7 @@ keyboard = [
 [InlineKeyboardButton("📍 Ad Soyad İl İlçe", callback_data='Ad Soyad İl İlçe')],
 InlineKeyboardButton("🏠 Adres", callback_data='Adres')],
 ]
+return
 reply_markup = InlineKeyboardMarkup(keyboard)
 await update.message.reply_text(WELCOME_MESSAGE, reply_markup=reply_markup)
 
