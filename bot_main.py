@@ -226,8 +226,7 @@ def is_user_in_channel(chat_id, channel_username):
 def start(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -274,8 +273,7 @@ def start(message):
 def komutlar(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -475,8 +473,8 @@ def call(message):
         return
 
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
+    
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -582,8 +580,7 @@ def call(message):
 def cc(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = '@rodyduyuru'
-    channel_username2 = '@rody_check' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -635,8 +632,7 @@ def cc(message):
 def ip(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -698,8 +694,7 @@ def ip(message):
 def ig(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -759,8 +754,7 @@ def ig(message):
 def index(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -818,8 +812,7 @@ def index(message):
 def playkod(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -882,8 +875,7 @@ API_ENDPOINT = 'https://apis.xditya.me/write?text={}'
 def yaz(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = '@KANALIN'
-    channel_username2 = '@KANALIN' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -924,8 +916,7 @@ def yaz(message):
 def random_user(message):
     user_name=message.from_user.username
     user_id=message.from_user.id
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -982,8 +973,7 @@ def random_user(message):
 def whois_info(message):
     user_id=message.from_user.username
     user_name=message.from_user.id
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1037,8 +1027,7 @@ def whois_info(message):
 def rpubg_command(message):
     user_id=message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1102,8 +1091,7 @@ def rot13(text):
 def rot13_command(message):
     user_id = message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1136,8 +1124,7 @@ def rot13_command(message):
 def md5_command(message):
     user_id = message.from_user.id
     user_name=message.from_user.username
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1199,7 +1186,7 @@ def send_sms(message):
 def generate_qr(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_usernames = ['@rodyduyuru', '@rody_check']
+    channel_usernames = ['@TozluFes', '@TozluFes']
     
     # Kullanıcının belirli kanallara katılıp katılmadığını kontrol et
     for channel_username in channel_usernames:
@@ -1304,7 +1291,7 @@ def get_exchange_rates():
 def send_exchange_rates(message):
     user_id = message.from_user.id
     user_name = message.from_user.username
-    channel_usernames = ['', '']
+    channel_usernames = ['TozluFes', 'TozluFes']
     
     # Kullanıcının belirli kanallara katılıp katılmadığını kontrol et
     for channel_username in channel_usernames:
@@ -1472,8 +1459,7 @@ def medeni(message):
         return
 
     user_id = message.from_user.id
-    channel_username1 = ''
-    channel_username2 = '' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1610,8 +1596,7 @@ def tckn(message):
         return
     user_name=message.from_user.username
     user_id = message.from_user.id
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1890,8 +1875,7 @@ def penis_size(message):
     if message.chat.type != "private":
         return
     user_id = message.from_user.id
-    channel_username1 = '@rodyduyuru'
-    channel_username2 = '@rody_check' 
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -1943,8 +1927,7 @@ def burc(message):
         return
 
     user_id = message.from_user.id
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
             bot.send_chat_action(message.chat.id, 'typing')
             time.sleep(0.1)
@@ -2019,8 +2002,7 @@ def apartman(message):
         return
 
     user_id = message.from_user.id
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(message.chat.id, 'typing')
         time.sleep(0.1)
@@ -2195,8 +2177,7 @@ def sulale(message):
         return
 
     user_id = message.from_user.id
-    channel_username1 = ''
-    channel_username2 = ''
+    channel_username1 = '@TozluFes'
     if not is_user_in_channel(user_id, channel_username1) or not is_user_in_channel(user_id, channel_username2):
         bot.send_chat_action(message.chat.id, 'typing')
         time.sleep(0.1)
