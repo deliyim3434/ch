@@ -52,7 +52,7 @@ keyboard = [
 [InlineKeyboardButton("📍 Ad Soyad İl", callback_data='Ad Soyad İl')],
 [InlineKeyboardButton("📍 Ad Soyad İl İlçe", callback_data='Ad Soyad İl İlçe')],
 [InlineKeyboardButton("🏠 Adres", callback_data='http://api.sowixfree.xyz/sowixapi/adres.php?tc=')],
-]
+],
 reply_markup = InlineKeyboardMarkup(keyboard)
 await update.message.reply_text(WELCOME_MESSAGE, reply_markup=reply_markup)
 
