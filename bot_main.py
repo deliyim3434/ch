@@ -3,7 +3,6 @@ import telebot
 from telebot.handler_backends import State, StatesGroup
 from telebot.storage import StateMemoryStorage
 from opennsfw2 import predict_image
-import cv2
 import numpy as np
 from PIL import Image
 from io import BytesIO
