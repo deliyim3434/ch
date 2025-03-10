@@ -1,6 +1,4 @@
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # GPU kullanımını devre dışı bırak
-
 import telebot
 from telebot.handler_backends import State, StatesGroup
 from telebot.storage import StateMemoryStorage
