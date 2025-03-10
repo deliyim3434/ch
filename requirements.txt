@@ -7,4 +7,3 @@ whois
 validators
 qrcode
 opennsfw2
-cv2
