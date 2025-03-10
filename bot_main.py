@@ -1,4 +1,4 @@
- import os
+
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # GPU kullanımını devre dışı bırak
 
 import telebot
