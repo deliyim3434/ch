@@ -8,3 +8,4 @@ validators
 qrcode
 opennsfw2
 pymongo
+aiohttp
