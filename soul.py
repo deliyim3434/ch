@@ -3,7 +3,7 @@ from telebot import types
 import sqlite3
 from datetime import datetime, timedelta
 
-API_TOKEN = '8133504850:AAFki7MS45X9A7RSvFUR1V0JYi_iEWyb9_U'
+API_TOKEN = '7775964647:AAG9pNI1RZx32qoMFT2Zaok1E_E-519yCFw'
 bot = telebot.TeleBot(API_TOKEN)
 
 conn = sqlite3.connect('message_counts.db', check_same_thread=False)
