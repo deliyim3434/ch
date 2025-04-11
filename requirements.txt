@@ -10,3 +10,7 @@ opennsfw2
 pymongo
 aiohttp
 user_agent
+colorama
+telethon
+asyncio
+telegram
