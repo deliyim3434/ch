@@ -119,7 +119,7 @@ result = response.json()
 
 await update.message.reply_text(f"API yanıtı:\n{result}")
 
-def main():
+def ch():
 application = Application.builder().token(TOKEN).build()
 application.add_handler(CommandHandler("start", start))
 application.add_handler(CallbackQueryHandler(button))
@@ -128,7 +128,7 @@ application.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, hand
 application.run_polling()
 
 if __name__ == 'ch':
-ch()arts) < 2:
+
             await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
             return
         params = {"ad": parts[0], "soyad": parts[1]}
@@ -156,7 +156,7 @@ ch()arts) < 2:
     
     await update.message.reply_text(f"API yanıtı:\n{result}")
 
-def main():
+def ch():
     application = Application.builder().token(TOKEN).build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
