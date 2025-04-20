@@ -1,133 +1,168 @@
-# t.me/Mr3rf1  <3
-# Eski khasti beri manba bezan :|
-from telethon.sync import TelegramClient
-from telethon.tl.functions.channels import JoinChannelRequest
-from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-from telethon import functions, types
-from os import listdir, mkdir
-from sys import argv
-from re import search
-from colorama import Fore
-import asyncio, argparse
-parser = argparse.ArgumentParser(description='A tool for reporting telegram channels by t.me/mr3rf1', add_help=False)
-parser.add_argument('-an', '--add-number', help='Add a new account')
-parser.add_argument('-r', '--run', help='To get count and run', type=int)
-parser.add_argument('-t', '--target', help='Enter target', type=str)
-parser.add_argument('-m', '--mode', help='set reason of reports', choices=['spam', 'fake_account', 'violence', 'child_abuse', 'pornography', 'geoirrelevant'])
-parser.add_argument('-re', '--reasons', help='shows list of reasons', action='store_true')
-parser.add_argument('-h', '--help', action='store_true')
-args = parser.parse_args()
-try:
-    mkdir('sessions')
-except: pass
-sesis = listdir('sessions')
-sesis.sort()
-api_id = 2839216
-api_hash = '967fc90f9013e51dd7fe0713c35e28f8'
-if args.help:
-    print(f'''Help:
-  -an {Fore.LIGHTBLUE_EX}NUMBER{Fore.RESET}, --add-number {Fore.LIGHTBLUE_EX}NUMBER{Fore.RESET} ~> {Fore.YELLOW}add account to script{Fore.RESET}
-  example: python3 {argv[0]} -an {Fore.LIGHTBLUE_EX}+1512****{Fore.RESET}
-  
-  -r {Fore.LIGHTBLUE_EX}COUNT{Fore.RESET}, --run {Fore.LIGHTBLUE_EX}COUNT{Fore.RESET} ~> {Fore.YELLOW}set count of reports{Fore.RESET}
-  -t {Fore.LIGHTBLUE_EX}TARGET{Fore.RESET}, --target {Fore.LIGHTBLUE_EX}TARGET{Fore.RESET} ~> {Fore.YELLOW}set target (without @){Fore.RESET}
-  -m {Fore.LIGHTBLUE_EX}MODE{Fore.RESET}, --mode {Fore.LIGHTBLUE_EX}MODE{Fore.RESET} ~> {Fore.YELLOW}set type of reports (spam,...){Fore.RESET}
-  example: python3 {argv[0]} -r {Fore.LIGHTBLUE_EX}1000{Fore.RESET} -t {Fore.LIGHTBLUE_EX}mmdChannel{Fore.RESET} -m {Fore.LIGHTBLUE_EX}spam{Fore.RESET}
-  
-  -re, --reasons ~> {Fore.YELLOW}show list of reasons for reporting{Fore.RESET}
-  -h, --help ~> {Fore.YELLOW}show help{Fore.RESET}''')
-elif args.reasons:
-    print(f'''List of reasons:
-    {Fore.YELLOW}*{Fore.RESET} spam
-    {Fore.YELLOW}*{Fore.RESET} fake_account
-    {Fore.YELLOW}*{Fore.RESET} violence
-    {Fore.YELLOW}*{Fore.RESET} child_abuse
-    {Fore.YELLOW}*{Fore.RESET} pornography
-    {Fore.YELLOW}*{Fore.RESET} geoirrelevant''')
-elif args.add_number != None:
-    number = args.add_number
-    if sesis != []:
-        nums = [int(search('Ac(\d+)\.session', x).group(1)) for x in sesis]
-        nums.sort()
-        nOfLastAc = int(search('Ac(\d+)\.session', sesis[-1]).group(1))
-        ses = TelegramClient(f'sessions/Ac{nums[-1]+1}', api_id, api_hash)
-        try:
-            ses.start(number)
-            print(f' [{Fore.GREEN}✅{Fore.RESET}] Your account added succesfully :D')
-            exit(0)
-        except PhoneNumberInvalidError:
-            print(f' [{Fore.RED}!{Fore.RESET}] The phoneNumber was invalid!{Fore.RESET}')
+import logging
+import requests
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, CallbackContext
+
+TOKEN = '7775964647:AAHeNT9JTFf18vZE79wdBAdSkJeX5VOG-uc'
+
+# API URLLERİ BURAYA DAHA DÜZENLİ YANIT İÇİN GELİŞTİRİRSİNZ SADECE APİ YANITINI ATAR
+API_URLS = {
+"TC": "APILERI BURAYA YAZ",
+"Aile": "APILERI BURAYA YAZ",
+"Sulale": "APILERI BURAYA YAZ",
+"Tc GSM": "APILERI BURAYA YAZ",
+"GSM TC": "APILERI BURAYA YAZ",
+"TC Pro": "APILERI BURAYA YAZ",
+"IBAN": "APILERI BURAYA YAZ",
+"Kızlık Soyadı": "APILERI BURAYA YAZ",
+"Operatör": "APILERI BURAYA YAZ",
+"Serino": "APILERI BURAYA YAZ",
+"Sicil": "APILERI BURAYA YAZ",
+"SMS Bomber": "APILERI BURAYA YAZ",
+"Ayak": "APILERI BURAYA YAZ",
+"Yarrak ve Boy": "APILERI BURAYA YAZ",
+"IP Sorgu": "APILERI BURAYA YAZ",
+"Anne Baba": "APILERI BURAYA YAZ",
+"Çocuk": "APILERI BURAYA YAZ",
+"Kardeş": "APILERI BURAYA YAZ",
+"Kuzen": "APILERI BURAYA YAZ",
+"Yeğen": "APILERI BURAYA YAZ",
+"Full": "APILERI BURAYA YAZ",
+"Ad Soyad": "APILERI BURAYA YAZ",
+"Ad Soyad İl": "APILERI BURAYA YAZ",
+"Ad Soyad İl İlçe": "APILERI BURAYA YAZ",
+"Adres": "APILERI BURAYA YAZ",
+}
+
+# Hoş geldin mesajı burada düzenlersin
+WELCOME_MESSAGE = (
+"Merhaba! @che 🌟\n\n"
+"Benimle çeşitli sorgular yapabilirsiniz. Aşağıdaki seçeneklerden birini seçin ve gerekli bilgileri girin:\n\n"
+"Başlamak için lütfen bir seçenek belirleyin! 🇹🇷"
+)
+
+async def start(update: Update, context: CallbackContext):
+keyboard = [
+[InlineKeyboardButton("📋 TC Sorgula", callback_data='TC')],
+[InlineKeyboardButton("👪 Aile Bilgileri", callback_data='Aile')],
+[InlineKeyboardButton("🌳 Sulale", callback_data='Sulale')],
+[InlineKeyboardButton("📱 TC GSM", callback_data='Tc GSM')],
+[InlineKeyboardButton("📞 GSM TC", callback_data='GSM TC')],
+[InlineKeyboardButton("🔑 TC Pro", callback_data='TC Pro')],
+[InlineKeyboardButton("🏦 IBAN", callback_data='IBAN')],
+[InlineKeyboardButton("💼 Kızlık Soyadı", callback_data='Kızlık Soyadı')],
+[InlineKeyboardButton("📞 Operatör", callback_data='Operatör')],
+[InlineKeyboardButton("🔢 Serino", callback_data='Serino')],
+[InlineKeyboardButton("📜 Sicil", callback_data='Sicil')],
+[InlineKeyboardButton("📲 SMS Bomber", callback_data='SMS Bomber')],
+[InlineKeyboardButton("👣 Ayak", callback_data='Ayak')],
+[InlineKeyboardButton("📏 Yarrak ve Boy", callback_data='Yarrak ve Boy')],
+[InlineKeyboardButton("🌐 IP Sorgu", callback_data='IP Sorgu')],
+[InlineKeyboardButton("👨‍👩‍👧‍👦 Anne Baba", callback_data='Anne Baba')],
+[InlineKeyboardButton("👶 Çocuk", callback_data='Çocuk')],
+[InlineKeyboardButton("👫 Kardeş", callback_data='Kardeş')],
+[InlineKeyboardButton("👨‍👩‍👧 Kuzen", callback_data='Kuzen')],
+[InlineKeyboardButton("👦 Yeğen", callback_data='Yeğen')],
+[InlineKeyboardButton("🔍 Full Sorgu", callback_data='Full')],
+[InlineKeyboardButton("📝 Ad Soyad", callback_data='Ad Soyad')],
+[InlineKeyboardButton("📍 Ad Soyad İl", callback_data='Ad Soyad İl')],
+[InlineKeyboardButton("📍 Ad Soyad İl İlçe", callback_data='Ad Soyad İl İlçe')],
+[InlineKeyboardButton("🏠 Adres", callback_data='Adres')],
+]
+reply_markup = InlineKeyboardMarkup(keyboard)
+await update.message.reply_text(WELCOME_MESSAGE, reply_markup=reply_markup)
+
+async def button(update: Update, context: CallbackContext):
+query = update.callback_query
+await query.answer()
+data = query.data
+
+await query.edit_message_text(text=f"{data} sorgusu yapmak için gerekli bilgileri girin.")
+context.user_data['current_query'] = data
+
+async def handle_message(update: Update, context: CallbackContext):
+text = update.message.text
+query_type = context.user_data.get('current_query')
+
+if not query_type:
+await update.message.reply_text("Önce bir sorgu seçmelisiniz. /start komutunu kullanın.")
+return
+
+params = {}
+if query_type == "Ad Soyad":
+parts = text.split(' ')
+if len(parts) &lt; 2:
+await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
+return
+params = {"ad": parts[0], "soyad": parts[1]}
+elif query_type == "Ad Soyad İl":
+parts = text.split(' ')
+if len(parts) &lt; 3:
+await update.message.reply_text("Ad, soyad ve il bilgisini doğru formatta girin: Ad Soyad İl")
+return
+params = {"ad": parts[0], "soyad": parts[1], "il": parts[2]}
+elif query_type == "Ad Soyad İl İlçe":
+parts = text.split(' ')
+if len(parts) &lt; 4:
+await update.message.reply_text("Ad, soyad, il ve ilçe bilgisini doğru formatta girin: Ad Soyad İl İlçe")
+return
+params = {"ad": parts[0], "soyad": parts[1], "il": parts[2], "ilce": parts[3]}
+else:
+if query_type in ["GSM TC", "Operatör"]:
+params = {"gsm": text}
+else:
+params = {"tc": text}
+
+api_url = API_URLS.get(query_type).format(**params)
+response = requests.get(api_url)
+result = response.json()
+
+await update.message.reply_text(f"API yanıtı:\n{result}")
+
+def main():
+application = Application.builder().token(TOKEN).build()
+application.add_handler(CommandHandler("start", start))
+application.add_handler(CallbackQueryHandler(button))
+application.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, handle_message))
+
+application.run_polling()
+
+if __name__ == '__main__':
+main()arts) < 2:
+            await update.message.reply_text("Ad ve soyadı doğru formatta girin: Ad Soyad")
+            return
+        params = {"ad": parts[0], "soyad": parts[1]}
+    elif query_type == "Ad Soyad İl":
+        parts = text.split(' ')
+        if len(parts) < 3:
+            await update.message.reply_text("Ad, soyad ve il bilgisini doğru formatta girin: Ad Soyad İl")
+            return
+        params = {"ad": parts[0], "soyad": parts[1], "il": parts[2]}
+    elif query_type == "Ad Soyad İl İlçe":
+        parts = text.split(' ')
+        if len(parts) < 4:
+            await update.message.reply_text("Ad, soyad, il ve ilçe bilgisini doğru formatta girin: Ad Soyad İl İlçe")
+            return
+        params = {"ad": parts[0], "soyad": parts[1], "il": parts[2], "ilce": parts[3]}
     else:
-        ses = TelegramClient(f'sessions/Ac1', api_id, api_hash)
-        try:
-            ses.start(number)
-            print(f' [{Fore.GREEN}✅{Fore.RESET}] Your account added succesfully :D')
-            exit(0)
-        except PhoneNumberInvalidError:
-            print(f' [{Fore.RED}!{Fore.RESET}] The phoneNumber was invalid!{Fore.RESET}')
-elif args.add_number == None and args.run != None and args.target != None and args.mode != None:
-    if sesis == []:
-        print(f' [{Fore.RED}!{Fore.RESET}] Please {Fore.RED}add a acount{Fore.RESET} to reporting!')
-        exit(0)
-    else:
-        count = int(args.run)
-        target = args.target
-        async def report(client):
-            async with client as cli:
-                selfName = await cli.get_entity('self')
-                selfName = selfName.first_name
-                try: repMes = await cli.get_messages(target, limit=3)
-                except ValueError: print(f' [{Fore.RED}!{Fore.RESET}] The link of channel was invalid!'); exit(0)
-                repMess = []
-                for m in repMes:
-                    repMess.append(m.id)
-                async for dialog in cli.iter_dialogs():
-                    if dialog.is_channel:
-                        if dialog.entity.username == target: exi = True; break
-                    else:
-                        exi = False
-                if not exi:
-                    await cli(JoinChannelRequest(target))
-                    await asyncio.sleep(1)
-                for r in range(count):
-                    # result = await cli(functions.messages.ReportSpamRequest(peer=target))
-                        # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonPornography(), message='This channel sends offensive content'))
-                    if args.mode == 'spam':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonSpam(), message="This channel sends offensive content"))                        # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonViolence()))
-                    elif args.mode == 'fake_account':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonFake(), message="This channel sends offensive content"))
-                    elif args.mode == 'violence':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonViolence(), message="This channel sends offensive content"))
-                    elif args.mode == 'child_abuse':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonChildAbuse(), message="This channel sends offensive content"))
-                    elif args.mode == 'pornography':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonPornography(), message="This channel sends offensive content"))
-                  
-                    elif args.mode == 'geoirrelevant':
-                        result = await cli(functions.messages.ReportRequest(peer=target, id=repMess, reason=types.InputReportReasonGeoIrrelevant(), message="This channel sends offensive content"))                        # functions.account.ReportPeerRequest(peer=target, reason=types.InputReportReasonViolence()))
-                    if result:
-                        print(f" [{Fore.GREEN}✅{Fore.RESET}] Reported :) Ac:{Fore.YELLOW}{selfName}{Fore.RESET} count:{Fore.LIGHTBLUE_EX}{r}{Fore.RESET}")
-                    else:
-                        print(f" [{Fore.RED}!{Fore.RESET}] Error :( Ac:{Fore.YELLOW}{selfName}{Fore.RESET}, count:{Fore.LIGHTBLUE_EX}{r}{Fore.RESET}")
-        async def main():
-            runLis = []
-            for num in range(1, len(sesis) + 1):
-                exec(
-                    f"runLis.append(report(TelegramClient(f'sessions/Ac{num}', api_id, api_hash)))")
-            await asyncio.gather(*runLis)
-        asyncio.run(main())
-elif args.add_number == None and args.run != None and (args.target == None or args.mode == None):
-    print(f" [{Fore.RED}!{Fore.RESET}] Please use this format{Fore.RED}~>{Fore.RESET} python3 {argv[0]} -r 10000 -t mmdChannel -m reportReseaon")
-elif args.add_number == None and args.run == None and args.target == None and args.mode == None:
-    print(f"""
-    _____    _ __    t.me/{Fore.MAGENTA}Mr3rf1{Fore.RESET}    💀
-   |_   _|__| |  _ \ ___ _ __   ___ _ __
-     | |/ _ \ | |_) / _ \ '_ \ / _ \ '__|
-     | |  __/ |  _ <  __/ |_) |  __/ |
-     |_|\___|_|_| \_\___| .__/ \___|_|
-                         |_|
-     github.com/e811-py
-{Fore.YELLOW}-----------------------------------------------{Fore.RESET}
- a tool for reporting telegram channels by @Mr3rf1
- use --help to see help: python3 {argv[0]} --help
-    """)
+        if query_type in ["GSM TC", "Operatör"]:
+            params = {"gsm": text}
+        else:
+            params = {"tc": text}
+
+    api_url = API_URLS.get(query_type).format(**params)
+    response = requests.get(api_url)
+    result = response.json()
+    
+    await update.message.reply_text(f"API yanıtı:\n{result}")
+
+def main():
+    application = Application.builder().token(TOKEN).build()
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(button))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
+    application.run_polling()
+
+if __name__ == '__main__':
+    main()
