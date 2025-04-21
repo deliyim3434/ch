@@ -33,13 +33,13 @@ except ImportError:
     from deep_translator import GoogleTranslator
 
 print("@Aglamamelisa", flush=True)
-owner_id = input()
+owner_id = input(8016828914)
 
 telethon_api_id = 21255274
 telethon_api_hash = "e85e59e1660d44c9a1a84e627ea3d06f"
 
 print("TELEGRAM HESAP NUMARA GİR :", flush=True)
-telethon_telefon_numarasi = input(8016828914)
+telethon_telefon_numarasi = input()
 
 session_name = telethon_telefon_numarasi.replace("+", "").replace(" ", "")  
 
