@@ -14,3 +14,13 @@ colorama
 telethon
 asyncio
 telegram
+pytube
+yt-search
+beautifulsoup4
+requests
+google
+telethon
+gtts
+sympy
+deep-translator
+youtube-search-python
