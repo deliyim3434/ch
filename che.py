@@ -39,7 +39,7 @@ telethon_api_id = 21255274
 telethon_api_hash = "e85e59e1660d44c9a1a84e627ea3d06f"
 
 print("TELEGRAM HESAP NUMARA GİR :", flush=True)
-telethon_telefon_numarasi = input()
+telethon_telefon_numarasi = input(8016828914)
 
 session_name = telethon_telefon_numarasi.replace("+", "").replace(" ", "")  
 
@@ -48,7 +48,7 @@ saksocuerdem = f"{session_name}_sakuerdem.json"
 
 telethon_client = TelegramClient(session_name, telethon_api_id, telethon_api_hash)
 
-sudo_users = [7207620596]
+sudo_users = [8016828914]
 print("bot başladı Lütfen komut bekleyin..", flush=True)
 print("Hocam Kod geldi 5 7 8 9 halinde yaz", flush=True)  
 cmd = "TurkUserBot"
