@@ -65,13 +65,13 @@ pmpermit_msg = """**Merhaba first.**
 `🗃Bilgiler alınıyor....`
 `✅Bilgiler alındı....`
 
-**👉🏻Adınız: first**
-**👉🏻Kullanıcı adınız: username**
+**👉🏻che**
+**👉🏻@Aglamamelisa**
 
 `📜Listeye alındınız.`"""
 pmpermit = False
 approved_chats = []
-kanallar = ["@TurkUserBotKanali"]
+kanallar = ["@sevgilanali"]
 kayit_dokunma = {}
 
 async def kontrol(client):
@@ -138,7 +138,7 @@ async def sohbet_modu(event):
 @telethon_client.on(events.NewMessage(outgoing=True, pattern=r"^\.bilgi(?: |$)(.*)"))
 async def ramowlf(event):
     """İstatistikler için bir komut"""
-    waiting_message = await event.edit('@TurkUserBot_Bot `istatistikleri toplarken biraz bekle...`')
+    waiting_message = await event.edit('@Amedmusicbot `istatistikleri toplarken biraz bekle...`')
     start_time = time.time()
     
     private_chats = bots = groups = broadcast_channels = 0
