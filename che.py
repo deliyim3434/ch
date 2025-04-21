@@ -32,7 +32,7 @@ except ImportError:
     os.system("pip install deep-translator --break-system-packages")
     from deep_translator import GoogleTranslator
 
-print("KULLANİCİ İD GİR :", flush=True)
+print("@Aglamamelisa", flush=True)
 owner_id = input()
 
 telethon_api_id = 21255274
