@@ -10,7 +10,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 bot = Client(
     "my_bot",
-    api_id= 25504446
+    api_id= "25504446"
     api_hash= "47db27cde56c3e4690e244e6de10f919"
     bot_token= "7940182890:AAFpu-UoIxGYaCIUrzwO9D6hdE403LNaKuA"
 )
