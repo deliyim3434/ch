@@ -38,8 +38,8 @@ BOT_TOKEN = os.getenv("BOT_TOKEN","7940182890:AAFpu-UoIxGYaCIUrzwO9D6hdE403LNaKu
 BOT_USERNAME = os.getenv("BOT_USERNAME","Kfkfiddibot")
 MONGO_URI = os.getenv("MONGO_URI","mongodb+srv://Krishna:pss968048@cluster0.4rfuzro.mongodb.net/?retryWrites=true&w=majority")
 OWNER_ID = int(os.getenv("OWNER_ID","6258915779"))
-FORCE_JOIN1 = os.getenv("FORCE_JOIN1","https://t.me/sevgilanali")
-FORCE_JOIN2 = os.getenv("FORCE_JOIN2","https://t.me/sevgilanali")
+FORCE_JOIN1 = os.getenv("FORCE_JOIN1","sevgilanali")
+FORCE_JOIN2 = os.getenv("FORCE_JOIN2","sevgilanali")
 
 # MongoDB setup
 try:
