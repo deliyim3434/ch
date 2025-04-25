@@ -37,7 +37,7 @@ API_HASH = os.getenv("API_HASH","42a60d9c657b106370c79bb0a8ac560c")
 BOT_TOKEN = os.getenv("BOT_TOKEN","7940182890:AAFpu-UoIxGYaCIUrzwO9D6hdE403LNaKuA")
 BOT_USERNAME = os.getenv("BOT_USERNAME","Kfkfiddibot")
 MONGO_URI = os.getenv("MONGO_URI","mongodb+srv://Krishna:pss968048@cluster0.4rfuzro.mongodb.net/?retryWrites=true&w=majority")
-OWNER_ID = int(os.getenv("OWNER_ID","6258915779"))
+OWNER_ID = int(os.getenv("OWNER_ID","8016828914"))
 FORCE_JOIN1 = os.getenv("FORCE_JOIN1","sevgilanali")
 FORCE_JOIN2 = os.getenv("FORCE_JOIN2","sevgilanali")
 
@@ -195,12 +195,12 @@ async def start_command(client, message: Message):
 ✦ » ᴄʜᴇᴄᴋ ᴍʏ ᴀʙɪʟɪᴛʏ, ɢɪᴠᴇ ᴍᴇ ғᴜʟʟ ᴘᴏᴡᴇʀs ᴀɴᴅ ᴛʏᴘᴇ `/banall` ᴛᴏ ꜱᴇᴇ ᴍᴀɢɪᴄ ɪɴ ɢʀᴏᴜᴘ. 
 
 •──────────────────────•
-❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ  ➪  [˹ AɴsʜAᴘɪ ˼](https://t.me/+7AUuVrP8F69kYWY1)
+❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ  ➪  [˹ AɴsʜAᴘɪ ˼]()
 •──────────────────────•**""",
     reply_markup=InlineKeyboardMarkup([
         [InlineKeyboardButton("✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-        [InlineKeyboardButton("˹ sυᴘᴘσʀᴛ ˼", url="http://t.me/rishu1286"),
-         InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="https://t.me/+7AUuVrP8F69kYWY1")],
+        [InlineKeyboardButton("˹ sυᴘᴘσʀᴛ ˼", url=""),
+         InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="")],
         [InlineKeyboardButton("˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅ | ᴍσʀє ɪηғσ ˼", callback_data="help_main")]
     ])
 )
@@ -282,12 +282,12 @@ async def callback_handler(client, query: CallbackQuery):
 ✦ » ᴄʜᴇᴄᴋ ᴍʏ ᴀʙɪʟɪᴛʏ, ɢɪᴠᴇ ᴍᴇ ғᴜʟʟ ᴘᴏᴡᴇʀs ᴀɴᴅ ᴛʏᴘᴇ `/banall` ᴛᴏ ꜱᴇᴇ ᴍᴀɢɪᴄ ɪɴ ɢʀᴏᴜᴘ. 
 
 •──────────────────────•
-❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ  ➪  [˹ AɴsʜAᴘɪ ˼](https://t.me/+7AUuVrP8F69kYWY1)
+❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ  ➪  [˹ AɴsʜAᴘɪ ˼]()
 •──────────────────────•**""",
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-                [InlineKeyboardButton("˹ sυᴘᴘσʀᴛ ˼", url="http://t.me/rishu1286"),
-                 InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="https://t.me/+7AUuVrP8F69kYWY1")],
+                [InlineKeyboardButton("˹ sυᴘᴘσʀᴛ ˼", url=""),
+                 InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="")],
                 [InlineKeyboardButton("˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅ | ᴍσʀє ɪηғσ ˼", callback_data="help_main")]
             ])
         )
